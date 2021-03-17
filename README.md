@@ -41,14 +41,14 @@ Acknowledgements
 Parts of the implementation are based on the NE reference implementation provided by Qin Liu: https://github.com/ansrlab/edgepart
 
 This refers to the following classes. Some of them were adapted to fit the different data formats in HEP/NE++ compared to NE.
-conversions.cpp/hpp
-dense_bitset.hpp
-edgepart.hpp
-graph.cpp/hpp 
-min_heap.hpp
+conversions.cpp/hpp,
+dense_bitset.hpp,
+edgepart.hpp,
+graph.cpp/hpp, 
+min_heap.hpp,
 util.cpp/hpp
 
 We also integrated (for comparison to NE++) the original implementation of NE:
-ne_graph.cpp/hpp
-ne_min_heap.hpp
+ne_graph.cpp/hpp,
+ne_min_heap.hpp,
 ne_partitioner.cpp/hpp
