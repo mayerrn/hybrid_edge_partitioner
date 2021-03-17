@@ -1,3 +1,0 @@
-/home/ruben/ne_ooc/ne_ooc/CMakeFiles/rebuild_cache.dir
-/home/ruben/ne_ooc/ne_ooc/CMakeFiles/main.dir
-/home/ruben/ne_ooc/ne_ooc/CMakeFiles/edit_cache.dir
