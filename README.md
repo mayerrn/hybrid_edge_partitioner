@@ -1,6 +1,11 @@
 Hybrid Edge Partitioner
 =============================================
 
+Implementation of HEP, as published in SIGMOD 2021.
+
+Please cite the paper as follows:
+
+> Ruben Mayer and Hans-Arno Jacobsen. 2021. Hybrid Edge Partitioner: Partitioning Large Power-Law Graphs under Memory Constraints. In Proceedings of the 2021 International Conference on Management of Data (SIGMOD ’21), June 20–25, 2021, Virtual Event, China. ACM, New York, NY, USA, 14 pages. https://doi.org/10.1145/3448016.3457300
 
 Compilation and Usage
 ---------------------
@@ -31,3 +36,19 @@ main: -filename <path to the input graph> [-method hep] [-hdf <threshold / \tau>
 $ ./main -p 8 -method hep -hdf 10.0 -filename /path/to/com-orkut.ungraph.txt
 ```
 
+Acknowledgements
+---------------------
+Parts of the implementation are based on the NE reference implementation provided by Qin Liu: https://github.com/ansrlab/edgepart
+
+This refers to the following classes. Some of them were adapted to fit the different data formats in HEP/NE++ compared to NE.
+conversions.cpp/hpp
+dense_bitset.hpp
+edgepart.hpp
+graph.cpp/hpp 
+min_heap.hpp
+util.cpp/hpp
+
+We also integrated (for comparison to NE++) the original implementation of NE:
+ne_graph.cpp/hpp
+ne_min_heap.hpp
+ne_partitioner.cpp/hpp
