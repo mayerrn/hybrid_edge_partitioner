@@ -169,8 +169,6 @@ void HepPartitioner::in_memory_assign_remaining(){
 			{
 				int target = best_scored_partition(vid, neighbors[i]);
 				assign_edge(target, vid, neighbors[i]);
-				is_boundarys[target].set_bit_unsync(vid);
-				is_boundarys[target].set_bit_unsync(neighbors[i]);
 			}
 
 			// in case the vertex has high degree neighbors, the edges from
@@ -182,8 +180,6 @@ void HepPartitioner::in_memory_assign_remaining(){
 					if (is_high_degree.get(neighbors[i])){
 						int target = best_scored_partition(neighbors[i], vid);
 						assign_edge(target, neighbors[i], vid);
-						is_boundarys[target].set_bit_unsync(vid);
-						is_boundarys[target].set_bit_unsync(neighbors[i]);
 					}
 				}
 
@@ -348,7 +344,6 @@ void HepPartitioner::in_memory_clean_up_neighbors(vid_t vid, dense_bitset & is_c
 	    else if (is_high_degree.get(u)){
 	    	invalidated_edges_count++;
 	    	neighbors.erase_out(i);
-	    	is_boundary.set_bit_unsync(u);
 	    }
 	    else{
 	        i++;
@@ -368,7 +363,6 @@ void HepPartitioner::in_memory_clean_up_neighbors(vid_t vid, dense_bitset & is_c
 		 else if (is_high_degree.get(u)){
 			 invalidated_edges_count++;
 			 neighbors.erase_in(i);
-			 is_boundary.set_bit_unsync(u);
 		 }
          else{
         	 i++;

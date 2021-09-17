@@ -74,6 +74,9 @@ class HepPartitioner : public Partitioner
         assigned_edges++;
         occupied[bucket]++;
 
+        is_boundarys[bucket].set_bit_unsync(from);
+        is_boundarys[bucket].set_bit_unsync(to);
+
     }
 
     void in_memory_add_boundary(vid_t vid){
@@ -116,8 +119,6 @@ class HepPartitioner : public Partitioner
 				}
 				else{ //bucket is full; assign to next bucket
 					assign_edge(bucket + 1, vid , u );
-					is_boundarys[bucket+1].set_bit_unsync(vid);
-					is_boundarys[bucket+1].set_bit_unsync(u);
 				}
 
 			}
@@ -132,8 +133,6 @@ class HepPartitioner : public Partitioner
 					else {
 						//bucket is full; assign to next bucket
 						assign_edge(bucket + 1, vid , u );
-						is_boundarys[bucket+1].set_bit_unsync(vid);
-						is_boundarys[bucket+1].set_bit_unsync(u);
 					}
 				}else if (is_boundary.get(u)) {
 					if (!bucket_full){
@@ -146,8 +145,6 @@ class HepPartitioner : public Partitioner
 					else {
 						//bucket is full; assign to next bucket
 						assign_edge(bucket + 1, vid , u );
-						is_boundarys[bucket+1].set_bit_unsync(vid);
-						is_boundarys[bucket+1].set_bit_unsync(u);
 					}
 				}
 			}
@@ -172,8 +169,6 @@ class HepPartitioner : public Partitioner
 				else {
 					//bucket is full; assign to next bucket
 					assign_edge(bucket + 1, u , vid );
-					is_boundarys[bucket+1].set_bit_unsync(vid);
-					is_boundarys[bucket+1].set_bit_unsync(u);
 				}
 			}
 			else{
@@ -187,8 +182,6 @@ class HepPartitioner : public Partitioner
 					else {
 						//bucket is full; assign to next bucket
 						assign_edge(bucket + 1, u , vid );
-						is_boundarys[bucket+1].set_bit_unsync(vid);
-						is_boundarys[bucket+1].set_bit_unsync(u);
 					}
 				}else if (is_boundary.get(u)) {
 					if (!bucket_full){
@@ -201,8 +194,6 @@ class HepPartitioner : public Partitioner
 					else {
 						//bucket is full; assign to next bucket
 						assign_edge(bucket + 1, u , vid );
-						is_boundarys[bucket+1].set_bit_unsync(vid);
-						is_boundarys[bucket+1].set_bit_unsync(u);
 					}
 				}
 			}
